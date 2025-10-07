@@ -17,5 +17,3 @@ function searchContact(collection,target){
 
 const display = searchContact(contactList, "Black Panther");
 console.log(display)
-
-// can we enhance this code with asynchronous behaviour like promises
