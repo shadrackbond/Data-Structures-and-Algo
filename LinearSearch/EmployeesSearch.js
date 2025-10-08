@@ -38,16 +38,47 @@ Resolves the Promise with a new array containing all employee objects that match
 Rejects the Promise if the targetDepartment is not found, or if the initial employees array is empty.
 */
 
+target ="Finance";
 
-const employeeDatabase =[
-    {idnumber: "12345", name: "John Doe", department: "Finance"},
-    {idnumber: "67891", name: "Jane Doe", department: "HR"},
-    {idnumber: "74682", name: "Angelina Joulie", department: "Finance"},
-    {idnumber: "82913", name: "Beatrice smith", department: "Recruitment" }
+const employeeDatabase = [
+    { idnumber: "12345", name: "John Doe", department: "Finance" },
+    { idnumber: "67891", name: "Jane Doe", department: "HR" },
+    { idnumber: "74682", name: "Angelina Joulie", department: "Finance" },
+    { idnumber: "82913", name: "Beatrice smith", department: "Recruitment" }
 ];
 
-//You need a filter/search logic that finds all employees belonging to a specific department.
 
-const target = "Finance";
-const departmentName = "department";
-console.log(employeeDatabase[1][departmentName]);
+
+const filterEmployeesByDepartment= (database,departmentTarget) =>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const filteredEmployees =[];
+
+            for (let i = 0; i < database.length; i++){
+                const employee = database[i];
+    
+                if (employee.department === departmentTarget){
+                    filteredEmployees.push(employee)
+                }
+
+            }
+            if (filteredEmployees.length>0){
+                resolve(filteredEmployees)
+            }
+            else{
+                reject(`No employees found in ${departmentTarget} department`)
+            }
+        }, 1000)
+    })
+};
+
+filterEmployeesByDepartment(employeeDatabase, target)
+    .then(data => {
+        console.log("SUCCESS: Employees Found!");
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("ERROR:", error);
+    });
+
+//O(N) complexity
