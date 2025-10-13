@@ -52,7 +52,7 @@ const employeeDatabase = [
 const filterEmployeesByDepartment= (database,departmentTarget) =>{
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            const filteredEmployees =[];
+            const filteredEmployees =[];//new array to store the filtered results for display
 
             for (let i = 0; i < database.length; i++){
                 const employee = database[i];
