@@ -9,7 +9,7 @@ let arrayString = n.toString().split("")
 let sum = 0;
 console.log(n);
 console.log(arrayString)
-
+//looping through the number to get the sum of each valueSS
 for (let i = 0; i < arrayString.length; i++) {
     sum += parseInt(arrayString[i])
 }

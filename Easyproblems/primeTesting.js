@@ -3,6 +3,7 @@
 //output true or false
 
 //My original logic for this code is:
+//O(n)
 function isPrime(n) {
     if (n <= 1) {
         return false;
@@ -36,6 +37,7 @@ This is the only mathematically required case for a composite number n.
 If you find one factor a such that a <= /n, then the corresponding factor b must 
 satisfy b>=/n (or vice versa).
 */
+//O(/n)
 function findPrime(n) {
     if (n <= 1) {
         return false;
